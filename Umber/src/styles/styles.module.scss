@@ -1,0 +1,70 @@
+$ebony-color: #515751;
+$dim-gray-color: #596869;
+$slate-gray-color: #36453b;
+$ivory-color: #f5f9e9;
+$sage-color: #c2c1a5;
+
+@keyframes fadeInOut {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+.mainBoard {
+  background-color: $ebony-color;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 15px;
+  border: 2px solid $ivory-color;
+  border-radius: 25px;
+  padding: 40px;
+  width: 100%;
+}
+
+ .userCard {
+   background-color: $sage-color;
+   border: 2px solid $ivory-color;
+   border-radius: 5px;
+   padding: 15px;
+   color: $slate-gray-color;
+   box-shadow: 2px 2px 10px $sage-color;
+
+   animation: 3s alternate fadeInOut;
+ }
+
+ .userPhoto {
+   border-radius: 5px;
+ }
+
+ .userInfo {
+   margin-top: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+ }
+
+ .card1 {
+   grid-column: 4 / 8;
+   grid-row: 4;
+ }
+
+ .card2, .card3 {
+   grid-column: 2 / 8;
+   grid-row: 2 / 4;
+ }
+
+ .card4, .card5, .card6, .card7, .card8, .card9 {
+   grid-column: 1 / 8;
+   grid-row: 1 / 4;
+ }
+
+ .card10 {
+   grid-column: 2 / 8;
+   grid-row: 1 / 4;
+ }
