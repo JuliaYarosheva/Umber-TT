@@ -1,2 +1,2 @@
 # UmberTT
-Tack task for Umber
+Tech task for Umber
