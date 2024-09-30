@@ -6,12 +6,12 @@ import styles from '../styles/styles.module.scss'
 
 const usersCount = 10
 
-function getRandomInt(max) {
+function getRandomInt(max: number) {
     return Math.floor(Math.random() * max)
 }
 
-function getRandomIndexes(numberOfIndexes) {
-    let randomIndexes = []
+function getRandomIndexes(numberOfIndexes: number) {
+    let randomIndexes: number[] = []
 
     while (randomIndexes.length < numberOfIndexes) {
         let randomIndex = getRandomInt(usersCount)
