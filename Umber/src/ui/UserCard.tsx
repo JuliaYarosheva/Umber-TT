@@ -7,17 +7,12 @@ interface UserCard {
 }
 export const UserCard = ({userData, idx}: UserCard) => {
     return (
-        <div className={`${styles.userCard} card${idx}`}>
+        <div className={styles.userCard} style={{gridArea: `card${idx}`}}>
             <img className={styles.userPhoto} src={userData.picture.large} alt={userData.name.last}/>
             <div className={styles.userInfo}>
                 <div>
                     <span><b>Name:</b>&nbsp;</span>
-                    <span>{userData.name.title}&nbsp;</span>
                     <span>{userData.name.first}&nbsp;</span>
-                    <span>{userData.name.last}&nbsp;</span>
-                </div>
-                <div>
-                    <span><b>Email:</b> {userData.email}</span>
                 </div>
                 <div>
                     <span><b>Phone:</b> {userData.phone}</span>
