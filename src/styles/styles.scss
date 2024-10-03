@@ -20,13 +20,14 @@ $sage-color: #c2c1a5;
   border: 2px solid $ivory-color;
   border-radius: 25px;
   padding: 40px;
-  max-width: 1400px;
+  width: max-content;
 }
+
 .boardContainer {
-  grid-gap: 18px;
+  grid-gap: 20px;
   display: grid;
   grid-template-rows: repeat(8, 200px);
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 23%);
   grid-template-areas:
     "card1 card1 card1 card1"
     "card1 card1 card1 card1"
@@ -38,8 +39,8 @@ $sage-color: #c2c1a5;
     "card8 card9 card10 card10";
 
   @media (min-width: 960px) {
-    grid-gap: 8px;
-    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+    grid-template-columns: repeat(8, 11.7%);
     grid-template-rows: repeat(4, 200px);
     grid-template-areas:
     "card1 card1 card1 card1 card2 card2 card3 card3"
@@ -74,7 +75,5 @@ $sage-color: #c2c1a5;
    margin-top: 10px;
    display: flex;
    flex-direction: column;
-   align-items: flex-start;
    font-size: 14px;
-   white-space: nowrap;
  }
