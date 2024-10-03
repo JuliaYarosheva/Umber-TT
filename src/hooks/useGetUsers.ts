@@ -1,10 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { apiGetUsers } from "../api/get-users.api.ts";
-import { useState } from "react";
 
-export const useGetUsers = () => {
-    const [usersCount, setUsersCount] = useState(10)
-
+export const useGetUsers = (usersCount: number) => {
     const { data: queryUsers} = useQuery({
         queryKey: ['users', usersCount],
         queryFn: async () => {
@@ -13,5 +10,5 @@ export const useGetUsers = () => {
         }
     })
 
-    return { queryUsers, setUsersCount, usersCount }
+    return { queryUsers }
 }

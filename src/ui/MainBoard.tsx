@@ -1,8 +1,9 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useGetUsers } from "../hooks/useGetUsers.ts";
 import { User } from "../models/types.ts";
-import {UserCard} from "./UserCard.tsx";
-import styles from '../styles/styles.module.scss'
+import { UserCard } from "./UserCard.tsx";
+import '../styles/styles.scss'
+import { useQueryClient } from "@tanstack/react-query";
 
 const usersCount = 10
 
@@ -25,7 +26,9 @@ function getRandomIndexes(numberOfIndexes: number) {
 }
 
 export const MainBoard = () => {
-    const { queryUsers, setUsersCount, usersCount } = useGetUsers()
+    const queryClient = useQueryClient()
+    const [usersCount, setUsersCount] = useState(10)
+    const { queryUsers  } = useGetUsers(usersCount)
 
     const [users, setUsers] = useState<User[]>( [])
 
@@ -53,6 +56,7 @@ export const MainBoard = () => {
     useEffect(() => {
         const updateUsers = setInterval(() => {
             const newUsersCount = getRandomInt(usersCount)
+            queryClient.invalidateQueries({ queryKey: ['users'] })
             setUsersCount(newUsersCount)
         }, 3000)
 
@@ -61,9 +65,11 @@ export const MainBoard = () => {
         }
     }, []);
 
-    return <div className={styles.mainBoard}>
-        {users?.map((user, index) => {
-            return <UserCard key={`${user.id.value}-${index}`} userData={user} idx={index + 1} />
-        })}
+    return <div className='mainBoard'>
+        <div className='boardContainer'>
+            {users?.map((user, index) => {
+                return <UserCard key={`${user.id.value}-${index}`} userData={user} idx={index + 1} />
+            })}
+        </div>
     </div>
 }

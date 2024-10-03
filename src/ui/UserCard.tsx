@@ -1,5 +1,5 @@
 import {User} from "../models/types.ts";
-import styles from '../styles/styles.module.scss'
+import '../styles/styles.scss'
 
 interface UserCard {
     userData: User
@@ -7,9 +7,9 @@ interface UserCard {
 }
 export const UserCard = ({userData, idx}: UserCard) => {
     return (
-         <div className={styles.userCard} style={{gridArea: `card${idx}`}}>
-            <img className={styles.userPhoto} src={userData.picture.large} alt={userData.name.last}/>
-            <div className={styles.userInfo}>
+         <div className='userCard' style={{gridArea: `card${idx}`}}>
+            <img className='userPhoto' src={userData.picture.large} alt={userData.name.last}/>
+            <div className='userInfo'>
                 <div>
                     <span><b>Name:</b>&nbsp;</span>
                     <span>{userData.name.first}&nbsp;</span>
